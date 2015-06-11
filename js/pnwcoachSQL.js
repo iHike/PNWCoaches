@@ -1,4 +1,4 @@
-$.ajax({ url: '../apps/endTheTrendDBCall.php',
+$.ajax({ url: 'http://monkey-problems.com/FinalPNWCoach/apps/endTheTrendDBCall.php',
  data: {action: 'test'},
  dataType: 'json',
  type: 'post',
@@ -18,3 +18,4 @@ $.ajax({ url: '../apps/endTheTrendDBCall.php',
    
     }
  });
+
