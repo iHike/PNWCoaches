@@ -4,6 +4,8 @@
 
 function PNWDBArray() {
   
+  echo "Fuck 01";
+  
 // Variables for connecting to your database
 
 $hostname = "localhost";
@@ -28,40 +30,19 @@ mysql_select_db($dbname);
 
 //Fetching from your database table.
 $selectQuery = "SELECT * FROM $usertable";
+$countQuery = "SELECT * FROM $usertable";
 $resetQuery = "UPDATE endTheTrend SET coachUse='0' WHERE coachName='coachName 00';";
 $selectResult = mysql_query($selectQuery);
 
-  
   if ($selectResult) {
-
-      while($r = mysql_fetch_array($selectResult)) {
-
-          $name = $r["$cNameField"];
-          $city = $r["$cCityField"];
-          $story = $r["$cStoryField"];
-          $statement = $r["$cStatementField"];
-          $pic = $r["$cPicField"];
-          $status = $r["$cStatusField"];
-
-          if ($status > "0") {
-              echo "\"$name\",\"$status\"<br>";
-//              echo "UPDATE endTheTrend SET coachUse = '$status' WHERE coachName = '$name';";
-                $updateQuery = "UPDATE endTheTrend SET coachUse = '0' WHERE coachName = '$name';";
-                $supdateResult = mysql_query($updateQuery);
-//                $updateResult;
-
-//              $cPHPArray = array("$name", "$city", "$story", "$statement", "$pic", "$status");
-//
-//              $cJSONString = json_encode($cPHPArray);
-//              echo "$cJSONString";
-
-              exit();
-          }
-      }
     
-      echo "Reset";
-  }
-  
+      $recordCount = "select count(*) from endTheTrend;
+      $updateQuery = "UPDATE endTheTrend SET coachUse = '1' WHERE coachName = '$name';
+      echo $recordCount;
+      echo "Fuck 02";
+      
+      }
+
 }
 
 PNWDBArray();
